@@ -1,4 +1,5 @@
 FROM cloudac7/deepmd-kit:cuda-9.0-centos7
+ENV PATH /opt/conda3/bin:$PATH
 
 RUN yum install -y openssh-server
 RUN mkdir /var/run/sshd
