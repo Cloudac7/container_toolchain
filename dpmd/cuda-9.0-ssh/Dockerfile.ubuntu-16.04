@@ -1,7 +1,7 @@
 FROM cloudac7/deepmd-kit:cuda-9.0-ubuntu16.04
 RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
-RUN echo 'root:THEPASSWORDYOUCREATED' | chpasswd
+RUN echo 'root:deepmdhost' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
