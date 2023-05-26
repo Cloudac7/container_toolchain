@@ -10,9 +10,9 @@ RUN apt-get update && \
 
 # download and install libtorch
 WORKDIR /opt
-RUN wget https://download.pytorch.org/libtorch/cu113/libtorch-cxx11-abi-shared-with-deps-1.12.2%2Bcu113.zip && \
-    unzip libtorch-cxx11-abi-shared-with-deps-1.12.2+cu113.zip && \
-    rm libtorch-cxx11-abi-shared-with-deps-1.12.2+cu113.zip
+RUN wget https://download.pytorch.org/libtorch/cu113/libtorch-cxx11-abi-shared-with-deps-1.12.1%2Bcu113.zip && \
+    unzip libtorch-cxx11-abi-shared-with-deps-1.12.1+cu113.zip && \
+    rm libtorch-cxx11-abi-shared-with-deps-1.12.1+cu113.zip
 ENV LIBTORCH=/opt/libtorch
 ENV CPATH="${LIBTORCH}/include/torch/csrc/api/include/:${LIBTORCH}/include/:${LIBTORCH}/include/torch:$CPATH"
 ENV INCLUDE="${LIBTORCH}/include/torch/csrc/api/include/:${LIBTORCH}/include/:${LIBTORCH}/include/torch:$INCLUDE"
