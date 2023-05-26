@@ -84,7 +84,7 @@ RUN pip install --no-cache-dir tensorflow==2.12 && \
 
 FROM nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04 as build-image
 COPY --from=compile-image /opt /opt
-
+ENV PATH="/opt/lammps/bin:/opt/plumed/bin:/opt/deepmd-kit/bin:$PATH"
 ENV CPATH="/opt/libtorch/include/torch/csrc/api/include/:/opt/libtorch/include/:/opt/libtorch/include/torch:$CPATH"
 ENV INCLUDE="/opt/plumed/include:/opt/libtorch/include/torch/csrc/api/include/:/opt/libtorch/include/:/opt/libtorch/include/torch:$INCLUDE"
 ENV LIBRARY_PATH="/opt/lammps/lib:/opt/libtorch/lib:/opt/plumed/lib:$LIBRARY_PATH"
