@@ -3,7 +3,9 @@ name: docker_build
 on:
   push:
     branches:
-      - 'master'
+      - master
+    paths:
+      - plumed/**
 
 jobs:
   docker:
