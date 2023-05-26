@@ -64,7 +64,6 @@ ENV LD_LIBRARY_PATH="/opt/lammps/lib:/opt/deepmd-kit/lib:$LD_LIBRARY_PATH"
 RUN python3 -m venv /opt/deepmd-kit
 ENV PATH="/opt/deepmd-kit/bin:$PATH"
 WORKDIR /tmp
-COPY stable_23Jun2022_update4.tar.gz /tmp
 RUN pip install --no-cache-dir tensorflow==2.12 && \
     wget https://github.com/lammps/lammps/archive/refs/tags/stable_23Jun2022_update4.tar.gz && \
     tar xf stable_23Jun2022_update4.tar.gz && \
