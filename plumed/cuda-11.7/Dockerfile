@@ -4,8 +4,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 # prepairing environment
 RUN apt-get update && \
     apt-get install -y git wget gawk libopenblas-base libgomp1 make cmake \
-    openssh-client python3 python3-dev python3.8-venv mpich vim zlib1g \
-    gcc gfortran g++ libopenblas-dev xxd zlib1g-dev zip unzip tar && \
+    openssh-client python3 python3-dev python3.8-venv mpich libmpich-dev vim \
+    zlib1g zlib1g-dev gcc gfortran g++ libopenblas-dev xxd zip unzip tar && \
     rm -rf /var/lib/apt/lists/*
 
 # download and install libtorch
@@ -85,8 +85,8 @@ RUN pip install --no-cache-dir tensorflow==2.12 && \
 FROM nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04 as build-image
 COPY --from=compile-image /opt /opt
 RUN apt-get update && \
-    apt-get install -y libopenblas-base libgomp1 python3 python3-dev python3.8-venv \
-    mpich zlib1g zlib1g-dev gcc gfortran g++ libopenblas-dev xxd  && \
+    apt-get install -y libopenblas-base libgomp1 python3 \
+    mpich zlib1g gcc gfortran g++ xxd  && \
     rm -rf /var/lib/apt/lists/*
 ENV PATH="/opt/lammps/bin:/opt/plumed/bin:/opt/deepmd-kit/bin:$PATH"
 ENV CPATH="/opt/libtorch/include/torch/csrc/api/include/:/opt/libtorch/include/:/opt/libtorch/include/torch:$CPATH"
