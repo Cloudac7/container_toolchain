@@ -17,11 +17,11 @@ RUN ./install_requirements.sh ubuntu
 RUN mkdir scripts
 COPY --from=source-image \
      /opt/cp2k-2023.1/tools/toolchain/scripts/VERSION \
-     /opt/cp2k-2023.1/tools/tools/toolchain/scripts/parse_if.py \
-     /opt/cp2k-2023.1/tools/tools/toolchain/scripts/tool_kit.sh \
-     /opt/cp2k-2023.1/tools/tools/toolchain/scripts/common_vars.sh \
-     /opt/cp2k-2023.1/tools/tools/toolchain/scripts/signal_trap.sh \
-     /opt/cp2k-2023.1/tools/tools/toolchain/scripts/get_openblas_arch.sh \
+     /opt/cp2k-2023.1/tools/toolchain/scripts/parse_if.py \
+     /opt/cp2k-2023.1/tools/toolchain/scripts/tool_kit.sh \
+     /opt/cp2k-2023.1/tools/toolchain/scripts/common_vars.sh \
+     /opt/cp2k-2023.1/tools/toolchain/scripts/signal_trap.sh \
+     /opt/cp2k-2023.1/tools/toolchain/scripts/get_openblas_arch.sh \
      ./scripts/
 COPY --from=source-image \
      /opt/cp2k-2023.1/tools/toolchain/install_cp2k_toolchain.sh .
