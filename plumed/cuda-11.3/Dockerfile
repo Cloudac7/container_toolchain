@@ -24,9 +24,8 @@ WORKDIR /tmp/plumed
 RUN wget https://github.com/plumed/plumed2/releases/download/v2.9.0/plumed-2.9.0.tgz && \
     tar xf plumed-2.9.0.tgz && \
     cd plumed-2.9.0 && \
-    export CC=`which gcc` && export CXX=`which g++` && export FC=`which gfortran` && \
     ./configure --prefix=/opt/plumed --enable-libtorch --enable-modules=all CXXFLAGS=-O3 && \
-    make -j 6 && \
+    make -j 4 && \
     make install && \
     cd .. && \
     rm -fr plumed-2.9.0 plumed-2.9.0.tgz
@@ -54,7 +53,7 @@ RUN wget https://github.com/lammps/lammps/archive/refs/tags/stable_23Jun2022_upd
     -D CMAKE_INSTALL_FULL_LIBDIR=${lammps_installation_dir}/lib \
     -C ../cmake/presets/most.cmake -C ../cmake/presets/nolib.cmake \
     -D PKG_PLUMED=yes -D PLUMED_MODE=shared ../cmake && \
-    make -j 6 && make install && \
+    make -j 4 && make install && \
     cd ../../ && rm -rf lammps-* && rm stable_23Jun2022_update4.tar.gz
 ENV PATH="/opt/lammps/bin:$PATH"
 ENV LIBRARY_PATH="/opt/lammps/lib:$LIBRARY_PATH"
