@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 # download and install libtorch
 WORKDIR /opt
-RUN wget https://download.pytorch.org/libtorch/cu121/libtorch-shared-with-deps-2.2.0%2Bcu121.zip && \
+RUN wget -q https://download.pytorch.org/libtorch/cu121/libtorch-shared-with-deps-2.2.0%2Bcu121.zip && \
     unzip libtorch-shared-with-deps-2.2.0+cu121.zip && \
     rm libtorch-shared-with-deps-2.2.0+cu121.zip
 
