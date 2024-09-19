@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # prepairing environment
 RUN apt-get update && \
     apt-get install -y git wget gawk libopenblas-base libgomp1 make cmake \
-    openssh-client python3 python3-dev python3.8-venv mpich libmpich-dev vim \
+    openssh-client python3 python3-dev python3-venv mpich libmpich-dev vim \
     zlib1g zlib1g-dev gcc gfortran g++ libopenblas-dev xxd zip unzip tar && \
     rm -rf /var/lib/apt/lists/*
 
