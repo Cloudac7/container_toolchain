@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.1.0-cudnn-devel-ubuntu22.04 as compile-image
+FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04 as compile-image
 ARG DEBIAN_FRONTEND=noninteractive
 
 # prepairing environment
@@ -44,7 +44,7 @@ ENV PATH="/opt/lammps/bin:$PATH"
 ENV LIBRARY_PATH="/opt/lammps/lib:$LIBRARY_PATH"
 ENV LD_LIBRARY_PATH="/opt/lammps/lib:/opt/deepmd-kit/lib:$LD_LIBRARY_PATH"
 
-FROM nvidia/cuda:12.1.0-cudnn-runtime-ubuntu22.04 as build-image
+FROM nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04 as build-image
 COPY --from=compile-image /opt /opt
 RUN apt-get update && \
     apt-get install -y libopenblas-base libgomp1 python3 \
